@@ -34,7 +34,7 @@ class LoginView: UIView {
         addSubview(bgImgView)
         addSubview(stackView)
         bgImgView.setAnchor(top: self.topAnchor, left: self.leftAnchor, bottom: self.bottomAnchor, right: self.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0)
-        stackView.setAnchor(width: self.frame.width - 80, height: 190)
+        stackView.setAnchor(width: self.frame.width - 80, height: 240)
         stackView.centerYAnchor.constraint(equalTo:self.centerYAnchor).isActive = true
         stackView.centerXAnchor.constraint(equalTo:self.centerXAnchor).isActive = true
     }
@@ -67,13 +67,14 @@ class LoginView: UIView {
     
     let validationLabel: UILabel = {
         let label = UILabel()
-        label.text = "Eu to aqui porra"
+        label.text = " "
         label.setAnchor(width: 0, height: 40)
         label.backgroundColor = UIColor(red: 1, green: 0, blue: 0, alpha: 0.5)
         label.layer.cornerRadius = 5
         label.textAlignment = .center
         return label
     }()
+    
     
     @objc func loginFunction(){
         loginAttr?()

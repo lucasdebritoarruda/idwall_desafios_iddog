@@ -1,0 +1,6 @@
+framework module Pods_idwall_desafios_iddog {
+  umbrella header "Pods-idwall_desafios_iddog-umbrella.h"
+
+  export *
+  module * { export * }
+}

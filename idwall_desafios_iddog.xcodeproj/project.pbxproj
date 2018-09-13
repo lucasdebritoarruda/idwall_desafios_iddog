@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C0677B6D7E4746BFAE9E4AA /* Pods_idwall_desafios_iddog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 171D6876A6B45FFBFED7D86E /* Pods_idwall_desafios_iddog.framework */; };
 		A0254B6321487218009597C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0254B6221487218009597C7 /* AppDelegate.swift */; };
 		A0254B6521487218009597C7 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0254B6421487218009597C7 /* LoginController.swift */; };
 		A0254B6B21487218009597C7 /* idwall_desafios_iddog.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A0254B6921487218009597C7 /* idwall_desafios_iddog.xcdatamodeld */; };
@@ -21,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		171D6876A6B45FFBFED7D86E /* Pods_idwall_desafios_iddog.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_idwall_desafios_iddog.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7FCA48CC7236B12AED1D7720 /* Pods-idwall_desafios_iddog.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-idwall_desafios_iddog.debug.xcconfig"; path = "Pods/Target Support Files/Pods-idwall_desafios_iddog/Pods-idwall_desafios_iddog.debug.xcconfig"; sourceTree = "<group>"; };
 		A0254B5F21487218009597C7 /* idwall_desafios_iddog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = idwall_desafios_iddog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0254B6221487218009597C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0254B6421487218009597C7 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
@@ -34,6 +37,7 @@
 		A0474C052149A0F700A75BE6 /* ButtonExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ButtonExtensions.swift; path = idwall_desafios_iddog/Extensions/ButtonExtensions.swift; sourceTree = SOURCE_ROOT; };
 		A0474C072149A43700A75BE6 /* StackExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StackExtensions.swift; path = idwall_desafios_iddog/Extensions/StackExtensions.swift; sourceTree = SOURCE_ROOT; };
 		A0474C092149D58700A75BE6 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		F47435F40B3CB0058BE90518 /* Pods-idwall_desafios_iddog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-idwall_desafios_iddog.release.xcconfig"; path = "Pods/Target Support Files/Pods-idwall_desafios_iddog/Pods-idwall_desafios_iddog.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,17 +45,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C0677B6D7E4746BFAE9E4AA /* Pods_idwall_desafios_iddog.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		71839FD136E70556D18A5A6B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7FCA48CC7236B12AED1D7720 /* Pods-idwall_desafios_iddog.debug.xcconfig */,
+				F47435F40B3CB0058BE90518 /* Pods-idwall_desafios_iddog.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9465E33235377A22D74A0BB5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				171D6876A6B45FFBFED7D86E /* Pods_idwall_desafios_iddog.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A0254B5621487217009597C7 = {
 			isa = PBXGroup;
 			children = (
 				A0254B6121487218009597C7 /* idwall_desafios_iddog */,
 				A0254B6021487218009597C7 /* Products */,
+				71839FD136E70556D18A5A6B /* Pods */,
+				9465E33235377A22D74A0BB5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -113,9 +137,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A0254B7421487218009597C7 /* Build configuration list for PBXNativeTarget "idwall_desafios_iddog" */;
 			buildPhases = (
+				C964FD4E62EBCCFD316353AE /* [CP] Check Pods Manifest.lock */,
 				A0254B5B21487218009597C7 /* Sources */,
 				A0254B5C21487218009597C7 /* Frameworks */,
 				A0254B5D21487218009597C7 /* Resources */,
+				9630024B5A2B9BDB9CAF5143 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -170,6 +196,47 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9630024B5A2B9BDB9CAF5143 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-idwall_desafios_iddog/Pods-idwall_desafios_iddog-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-idwall_desafios_iddog/Pods-idwall_desafios_iddog-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C964FD4E62EBCCFD316353AE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-idwall_desafios_iddog-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A0254B5B21487218009597C7 /* Sources */ = {
@@ -301,6 +368,7 @@
 		};
 		A0254B7521487218009597C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7FCA48CC7236B12AED1D7720 /* Pods-idwall_desafios_iddog.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -317,6 +385,7 @@
 		};
 		A0254B7621487218009597C7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F47435F40B3CB0058BE90518 /* Pods-idwall_desafios_iddog.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import SwiftyJSON
+import Alamofire
+
 
 class LoginController: UIViewController, UITextFieldDelegate {
     
@@ -39,11 +42,11 @@ class LoginController: UIViewController, UITextFieldDelegate {
         return true
     }
 
+    // MARK: - Login Functions
     func doLogin(){
         guard let email = self.loginView.emailTextField.text, self.loginView.emailTextField.text?.characters.count != 0 else{
             self.loginView.validationLabel.alpha = 1
             self.loginView.validationLabel.text = "Please enter your email"
-            print(self.loginView.emailTextField.text?.isValidEmail())
             return
         }
         if !(self.loginView.emailTextField.text?.isValidEmail())! {
@@ -51,6 +54,52 @@ class LoginController: UIViewController, UITextFieldDelegate {
             self.loginView.validationLabel.text = "Please enter valid email"
         }else{
             self.loginView.validationLabel.alpha = 0
+            self.loginView.loginButton.isEnabled = false
+            self.loginView.loginButton.alpha = 0.5
+            self.loginView.emailTextField.isEnabled = false
+            let activityIN = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+            activityIN.center = CGPoint(x: self.view.center.x, y: self.view.center.y + 100)
+            activityIN.hidesWhenStopped = true
+            activityIN.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+            activityIN.startAnimating()
+            self.view.addSubview(activityIN)
+            doLoginRequest(email: email){
+                token in
+                self.getFeed(token: token, completion: { (JSON) in
+                    print(JSON)
+                })
+                activityIN.stopAnimating()
+                activityIN.removeFromSuperview()
+            }
+        }
+    }
+    
+    func doLoginRequest(email:String, completion: @escaping (String) -> Void){
+        let parameters = ["email" : email]
+        let url = "https://api-iddog.idwall.co/signup"
+        Alamofire.request(url , method: .post, parameters: parameters).responseJSON(completionHandler: { (response) in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                let token = String(describing: json["user"]["token"])
+                completion(token)
+            case .failure(let error):
+                print(error)
+            }
+        })
+    }
+    
+    func getFeed(token:String, completion: @escaping (JSON) -> Void){
+        let header: HTTPHeaders = ["Authorization" : token]
+        let url = "https://api-iddog.idwall.co/feed?category=pug"
+        Alamofire.request(url, headers: header).responseJSON { (response) in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                completion(json)
+            case .failure(let error):
+                print(error)
+            }
         }
     }
     
