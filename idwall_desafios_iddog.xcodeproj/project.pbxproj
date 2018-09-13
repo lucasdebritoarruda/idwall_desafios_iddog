@@ -12,7 +12,12 @@
 		A0254B6B21487218009597C7 /* idwall_desafios_iddog.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A0254B6921487218009597C7 /* idwall_desafios_iddog.xcdatamodeld */; };
 		A0254B6D21487218009597C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0254B6C21487218009597C7 /* Assets.xcassets */; };
 		A0254B78214876C5009597C7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0254B77214876C5009597C7 /* LoginView.swift */; };
-		A0254B7A21487994009597C7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0254B7921487994009597C7 /* Extensions.swift */; };
+		A0254B7A21487994009597C7 /* ConstraintExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0254B7921487994009597C7 /* ConstraintExtensions.swift */; };
+		A02D57012149933400A6B730 /* TextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02D57002149933400A6B730 /* TextFieldExtensions.swift */; };
+		A0474C0421499E2500A75BE6 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0474C0321499E2500A75BE6 /* ColorExtensions.swift */; };
+		A0474C062149A0F700A75BE6 /* ButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0474C052149A0F700A75BE6 /* ButtonExtensions.swift */; };
+		A0474C082149A43700A75BE6 /* StackExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0474C072149A43700A75BE6 /* StackExtensions.swift */; };
+		A0474C0A2149D58700A75BE6 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0474C092149D58700A75BE6 /* StringExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +28,12 @@
 		A0254B6C21487218009597C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A0254B7121487218009597C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0254B77214876C5009597C7 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		A0254B7921487994009597C7 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		A0254B7921487994009597C7 /* ConstraintExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintExtensions.swift; sourceTree = "<group>"; };
+		A02D57002149933400A6B730 /* TextFieldExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExtensions.swift; sourceTree = "<group>"; };
+		A0474C0321499E2500A75BE6 /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
+		A0474C052149A0F700A75BE6 /* ButtonExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ButtonExtensions.swift; path = idwall_desafios_iddog/Extensions/ButtonExtensions.swift; sourceTree = SOURCE_ROOT; };
+		A0474C072149A43700A75BE6 /* StackExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StackExtensions.swift; path = idwall_desafios_iddog/Extensions/StackExtensions.swift; sourceTree = SOURCE_ROOT; };
+		A0474C092149D58700A75BE6 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +66,44 @@
 		A0254B6121487218009597C7 /* idwall_desafios_iddog */ = {
 			isa = PBXGroup;
 			children = (
+				A02D56FD214985C500A6B730 /* Auxiliar files */,
+				A02D56FE2149863D00A6B730 /* Extensions */,
+				A02D56FF2149866A00A6B730 /* LoginView */,
+			);
+			path = idwall_desafios_iddog;
+			sourceTree = "<group>";
+		};
+		A02D56FD214985C500A6B730 /* Auxiliar files */ = {
+			isa = PBXGroup;
+			children = (
 				A0254B6221487218009597C7 /* AppDelegate.swift */,
-				A0254B77214876C5009597C7 /* LoginView.swift */,
-				A0254B6421487218009597C7 /* LoginController.swift */,
-				A0254B7921487994009597C7 /* Extensions.swift */,
 				A0254B6C21487218009597C7 /* Assets.xcassets */,
 				A0254B7121487218009597C7 /* Info.plist */,
 				A0254B6921487218009597C7 /* idwall_desafios_iddog.xcdatamodeld */,
 			);
-			path = idwall_desafios_iddog;
+			path = "Auxiliar files";
+			sourceTree = "<group>";
+		};
+		A02D56FE2149863D00A6B730 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A0474C072149A43700A75BE6 /* StackExtensions.swift */,
+				A0474C052149A0F700A75BE6 /* ButtonExtensions.swift */,
+				A02D57002149933400A6B730 /* TextFieldExtensions.swift */,
+				A0254B7921487994009597C7 /* ConstraintExtensions.swift */,
+				A0474C0321499E2500A75BE6 /* ColorExtensions.swift */,
+				A0474C092149D58700A75BE6 /* StringExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A02D56FF2149866A00A6B730 /* LoginView */ = {
+			isa = PBXGroup;
+			children = (
+				A0254B77214876C5009597C7 /* LoginView.swift */,
+				A0254B6421487218009597C7 /* LoginController.swift */,
+			);
+			path = LoginView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,11 +176,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0254B7A21487994009597C7 /* Extensions.swift in Sources */,
+				A0254B7A21487994009597C7 /* ConstraintExtensions.swift in Sources */,
+				A02D57012149933400A6B730 /* TextFieldExtensions.swift in Sources */,
+				A0474C0A2149D58700A75BE6 /* StringExtensions.swift in Sources */,
 				A0254B6521487218009597C7 /* LoginController.swift in Sources */,
+				A0474C082149A43700A75BE6 /* StackExtensions.swift in Sources */,
 				A0254B6B21487218009597C7 /* idwall_desafios_iddog.xcdatamodeld in Sources */,
 				A0254B78214876C5009597C7 /* LoginView.swift in Sources */,
+				A0474C062149A0F700A75BE6 /* ButtonExtensions.swift in Sources */,
 				A0254B6321487218009597C7 /* AppDelegate.swift in Sources */,
+				A0474C0421499E2500A75BE6 /* ColorExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,7 +305,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MUP49TLQUB;
-				INFOPLIST_FILE = idwall_desafios_iddog/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/idwall_desafios_iddog/Auxiliar files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.lucas.idwall-desafios-iddog";
@@ -277,7 +321,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MUP49TLQUB;
-				INFOPLIST_FILE = idwall_desafios_iddog/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/idwall_desafios_iddog/Auxiliar files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.lucas.idwall-desafios-iddog";
