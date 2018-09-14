@@ -15,10 +15,13 @@
 		A0254B78214876C5009597C7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0254B77214876C5009597C7 /* LoginView.swift */; };
 		A0254B7A21487994009597C7 /* ConstraintExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0254B7921487994009597C7 /* ConstraintExtensions.swift */; };
 		A02D57012149933400A6B730 /* TextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02D57002149933400A6B730 /* TextFieldExtensions.swift */; };
+		A02F46C8214BD20200B31471 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A02F46C7214BD20200B31471 /* UserDefaultsManager.swift */; };
 		A0474C0421499E2500A75BE6 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0474C0321499E2500A75BE6 /* ColorExtensions.swift */; };
 		A0474C062149A0F700A75BE6 /* ButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0474C052149A0F700A75BE6 /* ButtonExtensions.swift */; };
 		A0474C082149A43700A75BE6 /* StackExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0474C072149A43700A75BE6 /* StackExtensions.swift */; };
 		A0474C0A2149D58700A75BE6 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0474C092149D58700A75BE6 /* StringExtensions.swift */; };
+		A0E55407214C495B00B9AB33 /* TableViewCellExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E55406214C495B00B9AB33 /* TableViewCellExtensions.swift */; };
+		A0FFC7D6214C39F7000655BC /* dogTypeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FFC7D5214C39F7000655BC /* dogTypeTableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,10 +36,13 @@
 		A0254B77214876C5009597C7 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		A0254B7921487994009597C7 /* ConstraintExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintExtensions.swift; sourceTree = "<group>"; };
 		A02D57002149933400A6B730 /* TextFieldExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldExtensions.swift; sourceTree = "<group>"; };
+		A02F46C7214BD20200B31471 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		A0474C0321499E2500A75BE6 /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
 		A0474C052149A0F700A75BE6 /* ButtonExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ButtonExtensions.swift; path = idwall_desafios_iddog/Extensions/ButtonExtensions.swift; sourceTree = SOURCE_ROOT; };
 		A0474C072149A43700A75BE6 /* StackExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StackExtensions.swift; path = idwall_desafios_iddog/Extensions/StackExtensions.swift; sourceTree = SOURCE_ROOT; };
 		A0474C092149D58700A75BE6 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		A0E55406214C495B00B9AB33 /* TableViewCellExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellExtensions.swift; sourceTree = "<group>"; };
+		A0FFC7D5214C39F7000655BC /* dogTypeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dogTypeTableView.swift; sourceTree = "<group>"; };
 		F47435F40B3CB0058BE90518 /* Pods-idwall_desafios_iddog.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-idwall_desafios_iddog.release.xcconfig"; path = "Pods/Target Support Files/Pods-idwall_desafios_iddog/Pods-idwall_desafios_iddog.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,9 +96,11 @@
 		A0254B6121487218009597C7 /* idwall_desafios_iddog */ = {
 			isa = PBXGroup;
 			children = (
+				A0FFC7D4214C39B6000655BC /* dogTypeView */,
+				A02D56FF2149866A00A6B730 /* LoginView */,
 				A02D56FD214985C500A6B730 /* Auxiliar files */,
 				A02D56FE2149863D00A6B730 /* Extensions */,
-				A02D56FF2149866A00A6B730 /* LoginView */,
+				A02F46C6214BD14A00B31471 /* Services */,
 			);
 			path = idwall_desafios_iddog;
 			sourceTree = "<group>";
@@ -117,6 +125,7 @@
 				A0254B7921487994009597C7 /* ConstraintExtensions.swift */,
 				A0474C0321499E2500A75BE6 /* ColorExtensions.swift */,
 				A0474C092149D58700A75BE6 /* StringExtensions.swift */,
+				A0E55406214C495B00B9AB33 /* TableViewCellExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -128,6 +137,22 @@
 				A0254B6421487218009597C7 /* LoginController.swift */,
 			);
 			path = LoginView;
+			sourceTree = "<group>";
+		};
+		A02F46C6214BD14A00B31471 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A02F46C7214BD20200B31471 /* UserDefaultsManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		A0FFC7D4214C39B6000655BC /* dogTypeView */ = {
+			isa = PBXGroup;
+			children = (
+				A0FFC7D5214C39F7000655BC /* dogTypeTableView.swift */,
+			);
+			path = dogTypeView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,11 +268,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0FFC7D6214C39F7000655BC /* dogTypeTableView.swift in Sources */,
 				A0254B7A21487994009597C7 /* ConstraintExtensions.swift in Sources */,
 				A02D57012149933400A6B730 /* TextFieldExtensions.swift in Sources */,
 				A0474C0A2149D58700A75BE6 /* StringExtensions.swift in Sources */,
 				A0254B6521487218009597C7 /* LoginController.swift in Sources */,
+				A02F46C8214BD20200B31471 /* UserDefaultsManager.swift in Sources */,
 				A0474C082149A43700A75BE6 /* StackExtensions.swift in Sources */,
+				A0E55407214C495B00B9AB33 /* TableViewCellExtensions.swift in Sources */,
 				A0254B6B21487218009597C7 /* idwall_desafios_iddog.xcdatamodeld in Sources */,
 				A0254B78214876C5009597C7 /* LoginView.swift in Sources */,
 				A0474C062149A0F700A75BE6 /* ButtonExtensions.swift in Sources */,

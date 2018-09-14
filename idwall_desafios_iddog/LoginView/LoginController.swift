@@ -65,11 +65,15 @@ class LoginController: UIViewController, UITextFieldDelegate {
             self.view.addSubview(activityIN)
             doLoginRequest(email: email){
                 token in
+                UserDefaultsManager.shared.isLoggedIn = true
+                UserDefaultsManager.shared.token = token
                 self.getFeed(token: token, completion: { (JSON) in
                     print(JSON)
+                    let mainController = UINavigationController(rootViewController: DogTypeTableView())
+                    self.present(mainController, animated: true, completion: nil)
+                    activityIN.stopAnimating()
+                    activityIN.removeFromSuperview()
                 })
-                activityIN.stopAnimating()
-                activityIN.removeFromSuperview()
             }
         }
     }
@@ -91,8 +95,9 @@ class LoginController: UIViewController, UITextFieldDelegate {
     
     func getFeed(token:String, completion: @escaping (JSON) -> Void){
         let header: HTTPHeaders = ["Authorization" : token]
-        let url = "https://api-iddog.idwall.co/feed?category=pug"
+        let url = "https://api-iddog.idwall.co/feed?category=labrador"
         Alamofire.request(url, headers: header).responseJSON { (response) in
+            print(response)
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
