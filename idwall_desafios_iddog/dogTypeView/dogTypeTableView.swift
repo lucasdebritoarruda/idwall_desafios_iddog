@@ -10,16 +10,18 @@ import UIKit
 
 class DogTypeTableView: UIViewController,UITableViewDelegate,UITableViewDataSource{
     
+    var dogTypes = ["pug","labrador","husky","hound"]
+    
     // MARK: - View Configuration
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = UIColor(r: 207, g: 207, b: 207)
         setupNavigationBar()
         setupTableView()
     }
     
     func setupNavigationBar(){
-        navigationItem.title = "Dog Type"
+        navigationItem.title = "Dog Types"
         navigationController?.navigationBar.barTintColor = UIColor.customOrange
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white,NSAttributedStringKey.font:UIFont.boldSystemFont(ofSize: 20)]
     }
@@ -27,6 +29,7 @@ class DogTypeTableView: UIViewController,UITableViewDelegate,UITableViewDataSour
     // MARK: - Table Configuration
     let tableView: UITableView = {
         let table = UITableView()
+        table.backgroundColor = UIColor(r: 207, g: 207, b: 207)
         table.separatorStyle = .none
         table.allowsSelection = false
         return table
@@ -48,11 +51,13 @@ class DogTypeTableView: UIViewController,UITableViewDelegate,UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return dogTypes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: dogTypeCell, for: indexPath) as! DogTypeCell
+        cell.dogImgView.image = UIImage(named: dogTypes[indexPath.row])
+        cell.titleLabel.text = dogTypes[indexPath.row].capitalized
         return cell
     }
     
@@ -80,9 +85,33 @@ class DogTypeCell: UITableViewCell{
         return view
     }()
     
+    var dogImgView: UIImageView = {
+        let imageview = UIImageView()
+        imageview.contentMode = .scaleAspectFill
+        imageview.layer.masksToBounds = true
+        imageview.layer.cornerRadius = 20
+        imageview.layer.borderWidth = 2
+        imageview.layer.borderColor = UIColor.customOrange.cgColor
+        return imageview
+    }()
+    
+    let titleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Sei la"
+        label.font = UIFont.boldSystemFont(ofSize: 16)
+        return label
+    }()
+    
     func setup(){
+        backgroundColor = UIColor(r: 207, g: 207, b: 207)
         addSubview(cellView)
+        cellView.addSubview(dogImgView)
+        cellView.addSubview(titleLabel)
         cellView.setAnchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 4, paddingLeft: 8, paddingBottom: 4, paddingRight: 8)
+        dogImgView.setAnchor(top: nil, left: cellView.leftAnchor, bottom: nil, right: nil, paddingTop: 0, paddingLeft: 8, paddingBottom: 0, paddingRight: 0, width: 40, height: 40)
+        dogImgView.centerYAnchor.constraint(equalTo:cellView.centerYAnchor).isActive = true
+        titleLabel.setAnchor(top: nil, left: dogImgView.rightAnchor, bottom: nil, right: rightAnchor, paddingTop: 0, paddingLeft: 20, paddingBottom: 0, paddingRight: 20, width: 0, height: 40)
+        titleLabel.centerYAnchor.constraint(equalTo:dogImgView.centerYAnchor).isActive = true
     }
     
 }
