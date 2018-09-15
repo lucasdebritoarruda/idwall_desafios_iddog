@@ -31,7 +31,7 @@ class DogTypeTableView: UIViewController,UITableViewDelegate,UITableViewDataSour
         let table = UITableView()
         table.backgroundColor = UIColor(r: 207, g: 207, b: 207)
         table.separatorStyle = .none
-        table.allowsSelection = false
+        //table.allowsSelection = false
         return table
     }()
     
@@ -65,8 +65,21 @@ class DogTypeTableView: UIViewController,UITableViewDelegate,UITableViewDataSour
         return 60
     }
     
+    // MARK: - Navigation
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let layout = UICollectionViewFlowLayout()
+        let dogPicturesCV = DogPicturesCollectionView(collectionViewLayout: layout)
+        dogPicturesCV.dogType = dogTypes[indexPath.row]
+        let backButton = UIBarButtonItem()
+        backButton.title = "Voltar"
+        self.navigationItem.backBarButtonItem = backButton
+        self.navigationController?.pushViewController(dogPicturesCV, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
 }
 
+    // MARK: - Custom Cell Configuration
 class DogTypeCell: UITableViewCell{
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
