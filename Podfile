@@ -7,5 +7,6 @@ target 'idwall_desafios_iddog' do
 
   pod 'Alamofire'
   pod 'SwiftyJSON'
+  pod 'LBTAComponents'
 
 end

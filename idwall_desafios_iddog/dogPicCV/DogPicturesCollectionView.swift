@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import LBTAComponents
 
 class DogPicturesCollectionView: UICollectionViewController, UICollectionViewDelegateFlowLayout{
     
@@ -30,12 +31,12 @@ class DogPicturesCollectionView: UICollectionViewController, UICollectionViewDel
     
     // MARK: - Collection View Configuration
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 21
+        return listaDeUrls.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! DogPicCell
-        cell.dogImageView.image = UIImage(named:"pug")
+        cell.dogImageView.loadImage(urlString: listaDeUrls[indexPath.row])
         return cell
     }
     
@@ -60,13 +61,14 @@ class DogPicCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    let dogImageView:UIImageView = {
-        let image = UIImageView()
+    let dogImageView: CachedImageView = {
+        let image = CachedImageView()
         image.contentMode = .scaleAspectFill
         image.layer.masksToBounds = true
         image.layer.cornerRadius = 5
         image.layer.borderWidth = 2
         image.layer.borderColor = UIColor.customOrange.cgColor
+        image.backgroundColor = UIColor.customOrange
         return image
     }()
     
@@ -78,3 +80,4 @@ class DogPicCell: UICollectionViewCell {
     }
     
 }
+

@@ -1,20 +1,24 @@
 PODS:
   - Alamofire (4.7.2)
+  - LBTAComponents (1.0.2)
   - SwiftyJSON (4.1.0)
 
 DEPENDENCIES:
   - Alamofire
+  - LBTAComponents
   - SwiftyJSON
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - LBTAComponents
     - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  LBTAComponents: c4c8863e0ef6715e378300db148b96a09df656f7
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
 
-PODFILE CHECKSUM: 7e9e7ef58bc187bb2dc99d0f35441b271c3ac22f
+PODFILE CHECKSUM: eca690718f52239cec202428f55ad831f4d581e1
 
 COCOAPODS: 1.5.3

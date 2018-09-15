@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import SwiftyJSON
+import Alamofire
 
 class DogTypeTableView: UIViewController,UITableViewDelegate,UITableViewDataSource{
     
@@ -73,8 +75,26 @@ class DogTypeTableView: UIViewController,UITableViewDelegate,UITableViewDataSour
         let backButton = UIBarButtonItem()
         backButton.title = "Voltar"
         self.navigationItem.backBarButtonItem = backButton
-        self.navigationController?.pushViewController(dogPicturesCV, animated: true)
-        tableView.deselectRow(at: indexPath, animated: true)
+        let token = UserDefaultsManager.shared.token
+        self.getFeed(token: token,typeOfDog: dogTypes[indexPath.row]) { (urls) in
+            dogPicturesCV.listaDeUrls = urls
+            self.navigationController?.pushViewController(dogPicturesCV, animated: true)
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+    }
+    
+    func getFeed(token:String,typeOfDog:String,completion: @escaping ([String]) -> Void){
+        let header: HTTPHeaders = ["Authorization" : token]
+        let url = "https://api-iddog.idwall.co/feed?category=" + typeOfDog
+        Alamofire.request(url, headers: header).responseJSON { (response) in
+            guard response.result.isSuccess,
+                let value = response.result.value else{
+                    print("Error while fetching tags: \(String(describing: response.result.error))")
+                    return
+            }
+            let urls = JSON(value)["list"].arrayObject as? [String]
+            completion(urls!)
+        }
     }
     
 }
