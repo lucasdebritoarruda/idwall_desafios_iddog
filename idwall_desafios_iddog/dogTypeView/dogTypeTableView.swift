@@ -26,6 +26,14 @@ class DogTypeTableView: UIViewController,UITableViewDelegate,UITableViewDataSour
         navigationItem.title = "Dog Types"
         navigationController?.navigationBar.barTintColor = UIColor.customOrange
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white,NSAttributedStringKey.font:UIFont.boldSystemFont(ofSize: 20)]
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "LogOut", style: .plain, target: self, action: #selector(logOut))
+    }
+    
+    @objc func logOut(){
+        UserDefaultsManager.shared.isLoggedIn = false
+        UserDefaultsManager.shared.token = ""
+        let loginController = UINavigationController(rootViewController: LoginController())
+        present(loginController, animated: true, completion: nil)
     }
     
     // MARK: - Table Configuration
