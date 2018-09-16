@@ -23,7 +23,7 @@ class DogTypeTableView: UIViewController,UITableViewDelegate,UITableViewDataSour
     }
     
     func setupNavigationBar(){
-        navigationItem.title = "Dog Types"
+        navigationItem.title = "Choose your favorite!"
         navigationController?.navigationBar.barTintColor = UIColor.customOrange
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white,NSAttributedStringKey.font:UIFont.boldSystemFont(ofSize: 20)]
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "LogOut", style: .plain, target: self, action: #selector(logOut))
