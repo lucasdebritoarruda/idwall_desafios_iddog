@@ -69,17 +69,16 @@ class DogTypeTableView: UIViewController,UITableViewDelegate,UITableViewDataSour
     
     // MARK: - Navigation
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.allowsSelection = false
         let layout = UICollectionViewFlowLayout()
         let dogPicturesCV = DogPicturesCollectionView(collectionViewLayout: layout)
         dogPicturesCV.dogType = dogTypes[indexPath.row]
-        let backButton = UIBarButtonItem()
-        backButton.title = "Voltar"
-        self.navigationItem.backBarButtonItem = backButton
         let token = UserDefaultsManager.shared.token
         self.getFeed(token: token,typeOfDog: dogTypes[indexPath.row]) { (urls) in
             dogPicturesCV.listaDeUrls = urls
             self.navigationController?.pushViewController(dogPicturesCV, animated: true)
             tableView.deselectRow(at: indexPath, animated: true)
+            tableView.allowsSelection = true
         }
     }
     

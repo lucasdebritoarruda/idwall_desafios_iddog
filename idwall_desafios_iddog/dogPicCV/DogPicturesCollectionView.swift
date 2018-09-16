@@ -49,7 +49,7 @@ class DogPicturesCollectionView: UICollectionViewController, UICollectionViewDel
     }
     
 }
-
+    // MARK: - Collection View Cell Configuration
 class DogPicCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
@@ -61,17 +61,54 @@ class DogPicCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    let dogImageView: CachedImageView = {
+    lazy var dogImageView: CachedImageView = {
         let image = CachedImageView()
         image.contentMode = .scaleAspectFill
         image.layer.masksToBounds = true
         image.layer.cornerRadius = 5
-        image.layer.borderWidth = 2
-        image.layer.borderColor = UIColor.customOrange.cgColor
-        image.backgroundColor = UIColor.customOrange
+        image.isUserInteractionEnabled = true
+        image.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(zoomImageIn)))
         return image
     }()
     
+    var startingFrame: CGRect?
+    var blackBG: UIView?
+    
+    @objc func zoomImageIn(tapGesture: UITapGestureRecognizer){
+        if let imageView = tapGesture.view as? UIImageView{
+            startingFrame = imageView.superview?.convert(imageView.frame, to: nil)
+            let zoomImageView = UIImageView(frame: startingFrame!)
+            zoomImageView.isUserInteractionEnabled = true
+            zoomImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(zoomImageOut)))
+            zoomImageView.image = imageView.image
+            zoomImageView.contentMode = .scaleAspectFill
+            if let keyWindow = UIApplication.shared.keyWindow {
+                blackBG = UIView(frame:keyWindow.frame)
+                blackBG?.backgroundColor = .black
+                blackBG?.alpha = 0
+                keyWindow.addSubview(blackBG!)
+                keyWindow.addSubview(zoomImageView)
+                
+                UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+                    self.blackBG?.alpha = 1
+                    let height = self.startingFrame!.height / self.startingFrame!.width * keyWindow.frame.width
+                    zoomImageView.frame = CGRect(x: 0, y: 0, width: keyWindow.frame.width, height: height)
+                    zoomImageView.center = keyWindow.center
+                }, completion: nil)
+            }
+        }
+    }
+    
+    @objc func zoomImageOut(tapGesture: UITapGestureRecognizer){
+        if let zoomOutImageView = tapGesture.view{
+            UIView.animate(withDuration: 0.2, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+                zoomOutImageView.frame = self.startingFrame!
+                self.blackBG?.alpha = 0
+            }, completion: { (Completed) in
+                zoomOutImageView.removeFromSuperview()
+            })
+        }
+    }
     
     func setup(){
         self.backgroundColor = UIColor(r: 207, g: 207, b: 207)
